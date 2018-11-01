@@ -1,2 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="technolifestyle.com.aqlite"/>
+          package="technolifestyle.com.aqlite">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>
