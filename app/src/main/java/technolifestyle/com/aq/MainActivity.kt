@@ -19,5 +19,7 @@ class MainActivity : AppCompatActivity() {
         aq.id(R.id.image_view)
             .image("https://source.unsplash.com/random")
 
+        aq.id(R.id.text_view)
+            .text(R.string.app_name)
     }
 }
