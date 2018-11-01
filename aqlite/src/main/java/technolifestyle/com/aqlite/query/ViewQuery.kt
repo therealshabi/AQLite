@@ -1,6 +1,7 @@
 package technolifestyle.com.aqlite.query
 
 import android.content.Context
+import android.text.Spanned
 import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
@@ -92,8 +93,15 @@ class ViewQuery(private var view: View) : ViewQueryInterface {
     }
 
     override fun checked(checked: Boolean): ViewQuery {
-        if(this.view is CompoundButton) {
+        if (this.view is CompoundButton) {
             (view as CompoundButton).isChecked = checked
+        }
+        return this
+    }
+
+    override fun text(text: Spanned): ViewQuery {
+        if (this.view is TextView) {
+            (this.view as TextView).text = text
         }
         return this
     }

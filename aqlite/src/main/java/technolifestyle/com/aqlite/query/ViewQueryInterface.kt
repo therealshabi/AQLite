@@ -1,5 +1,6 @@
 package technolifestyle.com.aqlite.query
 
+import android.text.Spanned
 import androidx.annotation.StringRes
 
 interface ViewQueryInterface {
@@ -10,6 +11,8 @@ interface ViewQueryInterface {
     fun text(str: String): ViewQuery
 
     fun text(charSequence: CharSequence): ViewQuery
+
+    fun text(text: Spanned): ViewQuery
 
     fun visible(): ViewQuery
 
