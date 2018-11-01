@@ -1,4 +1,4 @@
-package technolifestyle.com.aqlite
+package technolifestyle.com.aq
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
