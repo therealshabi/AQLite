@@ -1,6 +1,5 @@
 package technolifestyle.com.aqlite
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
@@ -15,8 +14,7 @@ class AQLite(private var view: View) {
     private val context: Context = view.context
 
     private lateinit var viewQuery: ViewQuery
-    private val rootView: View = (context as Activity).window
-        .decorView.findViewById(android.R.id.content)
+    private var rootView: View = view
 
     fun id(@IdRes resId: Int): ViewQuery {
         return ViewQuery(rootView.findViewById(resId))
