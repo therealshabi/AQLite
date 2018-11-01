@@ -1,4 +1,4 @@
-package technolifestyle.com.aqlite
+package technolifestyle.com.aq
 
 import org.junit.Test
 
