@@ -16,4 +16,6 @@ interface ViewQueryInterface {
     fun invisible(): ViewQuery
 
     fun gone(): ViewQuery
+
+    fun checked(checked: Boolean): ViewQuery
 }

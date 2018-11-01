@@ -3,6 +3,7 @@ package technolifestyle.com.aqlite.query
 import android.content.Context
 import android.util.Log
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,7 +26,7 @@ class ViewQuery(private var view: View) : ViewQueryInterface {
     }
 
     override fun image(imgSrc: Any, cache: Boolean): ViewQuery {
-        if (view is ImageView) {
+        if (this.view is ImageView) {
 
             Log.d("Image Url", imgSrc.toString())
             this.imgSrc = imgSrc
@@ -37,7 +38,7 @@ class ViewQuery(private var view: View) : ViewQueryInterface {
 
             glide.load(imgSrc)
                 .apply(requestOptions)
-                .into(view as ImageView)
+                .into(this.view as ImageView)
         }
         return this
     }
@@ -49,44 +50,51 @@ class ViewQuery(private var view: View) : ViewQueryInterface {
 
 
     override fun text(resId: Int): ViewQuery {
-        if (view is EditText) {
-            (view as EditText).setText(context.getString(resId))
-        } else if (view is TextView) {
-            (view as TextView).text = context.getString(resId)
+        if (this.view is EditText) {
+            (this.view as EditText).setText(context.getString(resId))
+        } else if (this.view is TextView) {
+            (this.view as TextView).text = context.getString(resId)
         }
         return this
     }
 
     override fun text(str: String): ViewQuery {
-        if (view is EditText) {
-            (view as EditText).setText(str)
-        } else if (view is TextView) {
-            (view as TextView).text = str
+        if (this.view is EditText) {
+            (this.view as EditText).setText(str)
+        } else if (this.view is TextView) {
+            (this.view as TextView).text = str
         }
         return this
     }
 
     override fun text(charSequence: CharSequence): ViewQuery {
-        if (view is EditText) {
-            (view as EditText).setText(charSequence)
-        } else if (view is TextView) {
-            (view as TextView).text = charSequence
+        if (this.view is EditText) {
+            (this.view as EditText).setText(charSequence)
+        } else if (this.view is TextView) {
+            (this.view as TextView).text = charSequence
         }
         return this
     }
 
     override fun visible(): ViewQuery {
-        view.visibility = View.VISIBLE
+        this.view.visibility = View.VISIBLE
         return this
     }
 
     override fun invisible(): ViewQuery {
-        view.visibility = View.INVISIBLE
+        this.view.visibility = View.INVISIBLE
         return this
     }
 
     override fun gone(): ViewQuery {
-        view.visibility = View.GONE
+        this.view.visibility = View.GONE
+        return this
+    }
+
+    override fun checked(checked: Boolean): ViewQuery {
+        if(this.view is CompoundButton) {
+            (view as CompoundButton).isChecked = checked
+        }
         return this
     }
 }
