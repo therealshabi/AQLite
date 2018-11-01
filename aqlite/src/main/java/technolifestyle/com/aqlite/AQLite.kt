@@ -13,7 +13,6 @@ class AQLite(private var view: View) {
 
     private val context: Context = view.context
 
-    private lateinit var viewQuery: ViewQuery
     private var rootView: View = view
 
     fun id(@IdRes resId: Int): ViewQuery {
