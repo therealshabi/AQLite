@@ -2,7 +2,6 @@ package technolifestyle.com.aq
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import technolifestyle.com.aqlite.AQLite
 
 class MainActivity : AppCompatActivity() {
@@ -23,10 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         aq.id(R.id.text_view)
             .text(R.string.app_name)
+//
+//        aq.backgroundColor(
+//            ContextCompat
+//                .getColor(this, R.color.colorAccent))
 
-        aq.backgroundColor(
-            ContextCompat
-                .getColor(this, R.color.colorAccent))
+        aq.find(R.id.check_box).text("Hey").checked(false)
 
 //        aq.background(R.mipmap.ic_launcher_round)
 
