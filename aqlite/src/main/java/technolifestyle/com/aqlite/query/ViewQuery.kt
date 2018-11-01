@@ -13,10 +13,6 @@ import com.bumptech.glide.request.RequestOptions
 
 class ViewQuery(private var context: Context) : ViewQueryInterface {
 
-    override fun background(): ViewQuery {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     private var glide: RequestManager = Glide.with(context)
     private lateinit var view: View
     private var requestOptions: RequestOptions
