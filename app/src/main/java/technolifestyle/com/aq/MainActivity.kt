@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 //        val index = Random().nextInt(2)
         aq.id(R.id.image_view)
             .image("https://source.unsplash.com/random")
+            .visible()
 
         aq.id(R.id.text_view)
             .text(R.string.app_name)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             ContextCompat
                 .getColor(this, R.color.colorAccent))
 
-        aq.background(R.mipmap.ic_launcher_round)
+//        aq.background(R.mipmap.ic_launcher_round)
 
 //        aq.backgroundColor(Color.GREEN)
     }
