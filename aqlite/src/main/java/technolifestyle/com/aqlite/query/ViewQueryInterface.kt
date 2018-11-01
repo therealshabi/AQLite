@@ -8,12 +8,9 @@ interface ViewQueryInterface {
 
     fun setView(view: View): ViewQuery
 
-    fun background(): ViewQuery
+    fun text(@StringRes resId: Int)
 
-    fun text(@StringRes resId: Int): Unit
+    fun text(str: String)
 
-    fun text(str: String): Unit
-
-    fun text(charSequence: CharSequence): Unit
-
+    fun text(charSequence: CharSequence)
 }
