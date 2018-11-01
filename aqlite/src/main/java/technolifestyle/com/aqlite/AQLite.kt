@@ -2,8 +2,10 @@ package technolifestyle.com.aqlite
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
 import technolifestyle.com.aqlite.query.ViewQuery
@@ -28,6 +30,12 @@ class AQLite(private var view: View) {
         view.setBackgroundColor(color)
     }
 
+    fun background(drawable: Drawable) {
+        view.background = drawable
+    }
 
+    fun background(@DrawableRes drawableRes: Int) {
+        view.background = ContextCompat.getDrawable(context, drawableRes)
+    }
 
 }
