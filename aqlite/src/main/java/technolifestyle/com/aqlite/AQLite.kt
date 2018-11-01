@@ -14,12 +14,12 @@ class AQLite(private var view: View) {
 
     private val context: Context = view.context
 
-    private val viewQuery: ViewQuery = ViewQuery(context)
+    private lateinit var viewQuery: ViewQuery
     private val rootView: View = (context as Activity).window
         .decorView.findViewById(android.R.id.content)
 
     fun id(@IdRes resId: Int): ViewQuery {
-        return viewQuery.setView(rootView.findViewById(resId))
+        return ViewQuery(rootView.findViewById(resId))
     }
 
     fun find(@IdRes resId: Int): ViewQuery {
