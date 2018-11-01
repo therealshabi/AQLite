@@ -3,7 +3,9 @@ package technolifestyle.com.aqlite.query
 import android.content.Context
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -46,5 +48,30 @@ class ViewQuery(private var context: Context) : ViewQueryInterface {
     override fun setView(view: View): ViewQuery {
         this.view = view
         return this
+    }
+
+
+    override fun text(resId: Int) {
+        if (view is EditText) {
+            (view as EditText).setText(context.getString(resId))
+        } else if (view is TextView) {
+            (view as TextView).text = context.getString(resId)
+        }
+    }
+
+    override fun text(str: String) {
+        if (view is EditText) {
+            (view as EditText).setText(str)
+        } else if (view is TextView) {
+            (view as TextView).text = str
+        }
+    }
+
+    override fun text(charSequence: CharSequence) {
+        if (view is EditText) {
+            (view as EditText).setText(charSequence)
+        } else if (view is TextView) {
+            (view as TextView).text = charSequence
+        }
     }
 }
