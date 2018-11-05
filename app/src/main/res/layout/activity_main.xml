@@ -42,4 +42,10 @@
             android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/check_box"/>
+
+    <Button
+            android:id="@+id/shoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shout"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

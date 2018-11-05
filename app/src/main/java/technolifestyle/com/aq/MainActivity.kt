@@ -2,7 +2,9 @@ package technolifestyle.com.aq
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import technolifestyle.com.aqlite.AQLite
+import technolifestyle.com.aqlite.Type
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,5 +34,10 @@ class MainActivity : AppCompatActivity() {
 //        aq.background(R.mipmap.ic_launcher_round)
 
 //        aq.backgroundColor(Color.GREEN)
+
+        shoutButton.setOnClickListener {
+            aq.shout("", Type.VERBOSE, '$')
+        }
+
     }
 }
