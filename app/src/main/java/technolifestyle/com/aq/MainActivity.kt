@@ -1,10 +1,10 @@
 package technolifestyle.com.aq
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import technolifestyle.com.aqlite.AQLite
-import technolifestyle.com.aqlite.Type
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 //        aq.backgroundColor(Color.GREEN)
 
         shoutButton.setOnClickListener {
-            aq.shout("", Type.VERBOSE, '$')
+            aq.shout("hello world")
         }
 
     }
