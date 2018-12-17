@@ -35,6 +35,12 @@ class AQLite(private var view: View) {
         view.background = ContextCompat.getDrawable(context, drawableRes)
     }
 
+    /**
+     * prints the log message
+     * @param message log message
+     * @param type log type(enum Type)
+     * @param delimiter character used for separation (default '*')
+     */
     fun shout(message: String, type: Type = Type.DEBUG, delimiter: Char = '*') {
         val shout = Shout(context)
         shout.shout(message, type, delimiter)
@@ -42,6 +48,9 @@ class AQLite(private var view: View) {
 
 }
 
+/**
+ * Logging types that can be used
+ */
 enum class Type {
     VERBOSE,
     DEBUG,
