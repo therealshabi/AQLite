@@ -5,13 +5,24 @@ import android.util.Log
 import java.lang.StringBuilder
 
 class Shout(context: Context) {
+
+    // represents length of each row of shout message
     private val EACH_ROW_LENGTH = 75
+
+    // represents each row word limit
     private val EACH_ROW_WORD_LIMIT = 30
+
+    // represents each row starting space
     private val EACH_ROW_STARTING_SPACE = 41
 
     private val TAG = context.javaClass.simpleName
     private val PACKAGE = context.javaClass.`package`.name
 
+    /**
+     * @param length - length of string
+     * @param delimiter - character which is used in the string
+     * @return line containing delimiter characters
+     */
     private fun stars(delimiter: Char, length: Int): String {
         val sb = StringBuilder()
         for (i in 1..length) {
@@ -21,6 +32,10 @@ class Shout(context: Context) {
         return sb.toString()
     }
 
+    /**
+     * @param length
+     * @return line containing empty spaces
+     */
     private fun getEmptySpaces(length: Int): String {
         val sb = StringBuilder()
         for (i in 1..length) {
@@ -29,6 +44,12 @@ class Shout(context: Context) {
         return sb.toString()
     }
 
+    /**
+     * @param text content of the line
+     * @param starting_space string representing the starting space of every line
+     * @param delimiter character used for separation
+     * @return new line of the shout message
+     */
     private fun addNewLineToShout(text: String, starting_space: String, delimiter: Char): String {
         val line = StringBuilder()
         line.append(starting_space)
@@ -49,6 +70,11 @@ class Shout(context: Context) {
         return line.toString();
     }
 
+    /**
+     * @param message shout message
+     * @param delimiter character used for separation
+     * @return properly designed shout message
+     */
     private fun generateShoutMessage(message: String, delimiter: Char): String {
         val words = message.split(" ")
         val number_of_words = words.size
@@ -78,6 +104,11 @@ class Shout(context: Context) {
         return text.toString()
     }
 
+    /**
+     * @param message shout message
+     * @param type log type
+     * @param delimiter character used for separation
+     */
     fun shout(message: String, type: Type, delimiter: Char) {
         val text = generateShoutMessage(message, delimiter)
 
