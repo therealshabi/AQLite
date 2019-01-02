@@ -11,7 +11,7 @@ class Shout(context: Context) {
         private const val EACH_ROW_LENGTH = 150
 
         // represents each row word limit
-        private const val EACH_ROW_WORD_LIMIT = 30
+        private const val EACH_ROW_WORD_LIMIT = 120
     }
 
     private val TAG = context.javaClass.simpleName
