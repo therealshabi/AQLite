@@ -6,17 +6,15 @@ import java.lang.StringBuilder
 
 class Shout(context: Context) {
 
-    // represents length of each row of shout message
-    private val EACH_ROW_LENGTH = 75
+    companion object {
+        // represents length of each row of shout message
+        private const val EACH_ROW_LENGTH = 150
 
-    // represents each row word limit
-    private val EACH_ROW_WORD_LIMIT = 30
-
-    // represents each row starting space
-    private val EACH_ROW_STARTING_SPACE = 41
+        // represents each row word limit
+        private const val EACH_ROW_WORD_LIMIT = 120
+    }
 
     private val TAG = context.javaClass.simpleName
-    private val PACKAGE = context.javaClass.`package`.name
 
     /**
      * @param length - length of string
@@ -50,24 +48,23 @@ class Shout(context: Context) {
      * @param delimiter character used for separation
      * @return new line of the shout message
      */
-    private fun addNewLineToShout(text: String, starting_space: String, delimiter: Char): String {
+    private fun addNewLineToShout(text: String, delimiter: Char): String {
         val line = StringBuilder()
-        line.append(starting_space)
-        line.append(delimiter);
-        line.append(delimiter);
-        val extra_length = EACH_ROW_LENGTH - 4 - text.length
-        var left_length = extra_length / 2;
-        val right_length = extra_length / 2
-        if (extra_length % 2 != 0) {
-            left_length++;
+        line.append(delimiter)
+        line.append(delimiter)
+        val extraLength = EACH_ROW_LENGTH - 4 - text.length
+        var leftLength = extraLength / 2
+        val rightLength = extraLength / 2
+        if (extraLength % 2 != 0) {
+            leftLength++
         }
-        line.append(getEmptySpaces(left_length));
-        line.append(text);
-        line.append(getEmptySpaces(right_length));
-        line.append(delimiter);
-        line.append(delimiter);
-        line.append("\n");
-        return line.toString();
+        line.append(getEmptySpaces(leftLength))
+        line.append(text)
+        line.append(getEmptySpaces(rightLength))
+        line.append(delimiter)
+        line.append(delimiter)
+        line.append("\n")
+        return line.toString()
     }
 
     /**
@@ -81,9 +78,9 @@ class Shout(context: Context) {
         val words_length = Array(words.size) {i -> words[i].length}
 
         val stars = stars(delimiter, EACH_ROW_LENGTH)
-        val starting_space = getEmptySpaces(EACH_ROW_STARTING_SPACE + PACKAGE.length + TAG.length)
 
         val text = StringBuilder()
+        text.append(".\n")
         text.append(stars)
         var newLine = StringBuilder()
         var currLength = 0
@@ -91,7 +88,7 @@ class Shout(context: Context) {
         for(index in 1..number_of_words){
             wordLength = (words_length[index-1] + 1)
             if(currLength + wordLength > EACH_ROW_WORD_LIMIT) {
-                text.append(addNewLineToShout(newLine.toString(), starting_space, delimiter))
+                text.append(addNewLineToShout(newLine.toString(), delimiter))
                 newLine = StringBuilder()
                 currLength = 0
             } else {
@@ -99,8 +96,8 @@ class Shout(context: Context) {
                 currLength += wordLength
             }
         }
-        if (!newLine.isEmpty()) text.append(addNewLineToShout(newLine.toString(), starting_space, delimiter))
-        text.append(starting_space + stars)
+        if (!newLine.isEmpty()) text.append(addNewLineToShout(newLine.toString(), delimiter))
+        text.append(stars)
         return text.toString()
     }
 
